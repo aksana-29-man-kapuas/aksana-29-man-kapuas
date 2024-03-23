@@ -38,3 +38,18 @@ hr {
 .text-justify {
     text-align: justify;
 }
+
+.carousel-inner::after {
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 50%;
+    content: "";
+    background-image: linear-gradient(0, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    bottom: 0;
+}
+
+.carousel-caption {
+    /* position: absolute; */
+    /* z-index: 1; */
+}
