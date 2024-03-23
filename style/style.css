@@ -1,0 +1,40 @@
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+.hero-section .container-fluid::after {
+    position: absolute;
+    display: block;
+    width: 100vw;
+    height: 100%;
+    content: "";
+    background-image: linear-gradient(
+        0,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.7)
+    );
+    top: 0;
+}
+
+.hero-section .container-fluid .hero-title {
+    font-size: 5vw;
+    left: 13%;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+#title-1 {
+    font-family: "Bebas Neue";
+    font-size: 13vw;
+    letter-spacing: 2vw;
+    top: 15%;
+    left: 20%;
+}
+
+hr {
+    border-top: 2px solid rgba(0, 0, 0, 1);
+}
+
+.text-justify {
+    text-align: justify;
+}
