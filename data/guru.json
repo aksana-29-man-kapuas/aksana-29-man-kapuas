@@ -1,0 +1,253 @@
+[
+    {
+        "nama": "Ahmad Mulyadi, S.Ag., M.Pd.",
+        "jabatan": "Kepala Madrasah",
+        "ekstra": "",
+        "image": "7f4f608ae82a1c4fd117cdb482d8807d.png"
+    },
+    {
+        "nama": "H. Salman, S.Pd, M.Sc",
+        "jabatan": "Wakamad Sarana dan Prasarana",
+        "mapel": [
+            "Fiqih",
+            "Matematika"
+        ],
+        "ekstra": "",
+        "image": "688537ff47d90e4c7134c8c3974364c8.png"
+    },
+    {
+        "nama": "Hj. Jumirah, S.Pd",
+        "jabatan": "Wakamad Kesiswaan",
+        "mapel": "Pendidikan Pancasila dan Kewarganegaraan",
+        "ekstra": "Pembina OSIM",
+        "image": "a69a979ad63c283ac0035ae24cc9e997.png"
+    },
+    {
+        "nama": "Ahmad Sajarwan, S.Pd",
+        "jabatan": "Wakamad Kurikulum",
+        "mapel": [
+            "Biologi",
+            "Keterampilan",
+            "Prakarya dan Kewirausahaan"
+        ],
+        "ekstra": "",
+        "image": "fc6be53ca822a2602017d92b1f5842b1.png"
+    },
+    {
+        "nama": "Rina Amahorosea, S.Pd,M.Pd",
+        "jabatan": "Wakamad Humas",
+        "mapel": "Kimia",
+        "ekstra": "",
+        "image": "886b451d7a80dd61734f0e5503f51836.png"
+    },
+    {
+        "nama": "Dra. Hj.Mariani",
+        "jabatan": "Wali Kelas XII IPA 3",
+        "mapel": "Akidah Akhlak",
+        "ekstra": "",
+        "image": "4c39b3c7849eec9046db49e6478fa2df.png"
+    },
+    {
+        "nama": "Hj. Teno Heika, S.Pd",
+        "jabatan": "Wali Kelas XII IPA 1",
+        "mapel": "Biologi",
+        "ekstra": "",
+        "image": "bcdcf49c62ab59c2f39102fcc3d78147.png"
+    },
+    {
+        "nama": "Hj. Eny Khikmawati, S.Pd",
+        "jabatan": "Wali Kelas XII IPS 3",
+        "mapel": "Bahasa Inggris",
+        "ekstra": "Bendahara Komite",
+        "image": "c6e34acd767bd4c3f51cfc3bc6e789c7.png"
+    },
+    {
+        "nama": "Salam, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Biologi",
+        "ekstra": "",
+        "image": "7b9611e6a56a3fb0a63e706f60578aa7.png"
+    },
+    {
+        "nama": "Hj. Latifah, S.Ag",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Fiqih",
+            "Ushul Fiqih"
+        ],
+        "ekstra": "",
+        "image": "10207103828b001281fec697cd7c81c0.png"
+    },
+    {
+        "nama": "H. Paidi, S.Pd",
+        "jabatan": "Guru BP/BK",
+        "ekstra": "",
+        "image": "18bdfc23ff11bf0411d61f5f1a0b68f7.png"
+    },
+    {
+        "nama": "(Alm.) H. Ahmad Salim, S.Ag, M.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Sejarah Kebudayaan Islam",
+        "ekstra": "",
+        "image": "49985fec46430090385a3f9e346a114b.png"
+    },
+    {
+        "nama": "Heni Susanty, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Kimia",
+        "ekstra": "",
+        "image": "1d280cf602faffaa586cd5306c1b613d.png"
+    },
+    {
+        "nama": "Ratna Sriningsih, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Matematika",
+            "Matematika Peminatan"
+        ],
+        "ekstra": "",
+        "image": "23745a94757a2110efc24003b01953e7.png"
+    },
+    {
+        "nama": "Sukaryati, S.Pd, M.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Fisika",
+        "ekstra": "",
+        "image": "1b823ac0d6fc6f87deb4f31d46ea5015.png"
+    },
+    {
+        "nama": "Siti Nurwidayati, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Bahasa Inggris",
+        "ekstra": "",
+        "image": "c18f34e27107140fd01561e64f9e903d.png"
+    },
+    {
+        "nama": "Marliannor, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Bahasa Arab",
+            "Mulok"
+        ],
+        "ekstra": "",
+        "image": "db51769e59e3d4e66470b90dac352898.png"
+    },
+    {
+        "nama": "Purniawan, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Geografi",
+        "ekstra": "",
+        "image": "ed91f9a20cf1be9cb61b94639c0e1f21.png"
+    },
+    {
+        "nama": "Hj. Noor Jennah, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Bahasa Indonesia",
+        "ekstra": "",
+        "image": "a04634a13f23677c680ea8f220ae983d.png"
+    },
+    {
+        "nama": "Gazali Rahman, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": "Akidah Akhlak",
+        "ekstra": "",
+        "image": "2ed7f31a1e1adf7da99d71503b1a4442.png"
+    },
+    {
+        "nama": "Taufikurahman, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Bahasa Arab",
+            "Mulok"
+        ],
+        "ekstra": "",
+        "image": "646efeba3690e5bc082236d3f08f2ada.png"
+    },
+    {
+        "nama": "Septiah, S.Ag, M.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": "Bahasa Indonesia",
+        "ekstra": "",
+        "image": "0747ea1871067819080e83ab93254d98.png"
+    },
+    {
+        "nama": "Nurmaryam, S.Pd, M.Pd",
+        "jabatan": "Guru BP/BK",
+        "ekstra": "",
+        "image": "63dfb89ce9f6488b7847184fb21fe9d0.png"
+    },
+    {
+        "nama": "Muhibatunnisa, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Bahasa Arab",
+            "Bahasa Arab Peminatan",
+            "Mulok"
+        ],
+        "ekstra": "",
+        "image": "3f8fd3de963840c1f010b36d9e65e164.png"
+    },
+    {
+        "nama": "Ruslina Ulfah, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": "Bahasa Indonesia",
+        "ekstra": "",
+        "image": "b682337fb52781d9ac285223b52267e7.png"
+    },
+    {
+        "nama": "Marni, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "ekstra": "",
+        "image": "2317241bc0751415fb6b67cdf037129b.png"
+    },
+    {
+        "nama": "Syafriansyah, S.Ag",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Al-Qur'an Hadits",
+            "Sejarah Kebudayaan Islam"
+        ],
+        "ekstra": "",
+        "image": "f260e9fa586faee666561b03127f8a70.png"
+    },
+    {
+        "nama": "Hj. Endang Yuliati, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Pendidikan Pancasila dan Kewarganegaraan",
+            "Sejarah Indonesia"
+        ],
+        "ekstra": "",
+        "image": "940061a201d2bac6963283ced04eea88.png"
+    },
+    {
+        "nama": "Hapsyah, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Ekonomi",
+            "Sosiologi"
+        ],
+        "ekstra": "",
+        "image": "6302b6dd9a2bf9d5be2a6639e7ad61af.png"
+    },
+    {
+        "nama": "Sukarsih, S.Pd",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Matematika",
+            "Matematika Peminatan"
+        ],
+        "ekstra": "",
+        "image": "579cdfc69d417e80f704f496c2ee0b15.png"
+    },
+    {
+        "nama": "Hj. Mariani, S.Pd.I",
+        "jabatan": "Dewan Guru",
+        "mapel": [
+            "Keterampilan",
+            "Pendidikan Pancasila dan Kewarganegaraan"
+        ],
+        "ekstra": "",
+        "image": "9868a45adb1d39aaef33256d5da37b7c.png"
+    }
+]
