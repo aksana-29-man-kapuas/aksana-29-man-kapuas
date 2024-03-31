@@ -12,6 +12,9 @@ const tampilCard = (keyword = '') => {
             const waliKelas = document.querySelector('#wali-kelas');
             const dewanGuru = document.querySelector('#dewan-guru');
             const kebersihanKeamanan = document.querySelector('#kebersihan-dan-keamanan');
+            const search = document.querySelector('#pencarian');
+            const nonSearch = document.querySelector('#non-pencarian');
+            const hasilPencarian = document.querySelector('#hasil-pencarian');
             let htmlKamad = '';
             let htmlKepalaTU = '';
             let htmlWakamad = '';
@@ -19,13 +22,13 @@ const tampilCard = (keyword = '') => {
             let htmlWaliKelas = '';
             let htmlDewanGuru = '';
             let htmlKebersihanKeamanan = '';
+            let htmlSearch = ``;
 
             if (!keyword instanceof String) {
                 keyword = '';
             }
 
             allTeachers.forEach(teacher => {
-                let html = '';
                 const nama = teacher.nama.toLowerCase();
 
                 if (teacher.image.length == 0) {
@@ -37,8 +40,8 @@ const tampilCard = (keyword = '') => {
                 if (nama.includes(keyword) && keyword.length != 0) {
                     teachers.push(teacher);
 
-                    html += `
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3"
+                    htmlSearch += `
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                         <div class="card">
                             <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                             <div class="card-body text-center">
@@ -160,7 +163,7 @@ const tampilCard = (keyword = '') => {
             });
 
             if (teachers.length == 0) {
-                html = `
+                htmlSearch += `
                     <div class="col">
                         <div class="alert alert-danger text-center" role="alert">
                             <h4>Guru yang dicari tidak ditemukan!</h4>
@@ -169,16 +172,26 @@ const tampilCard = (keyword = '') => {
                     </div>
                 `;
 
-                // tempatCard.innerHTML = html;
+
             }
 
-            kamad.innerHTML = htmlKamad;
-            kepalaTU.innerHTML = htmlKepalaTU;
-            wakamad.innerHTML = htmlWakamad;
-            staff.innerHTML = htmlStaff;
-            waliKelas.innerHTML = htmlWaliKelas;
-            dewanGuru.innerHTML = htmlDewanGuru;
-            kebersihanKeamanan.innerHTML = htmlKebersihanKeamanan;
+            if (keyword.length == 0) {
+                kamad.innerHTML = htmlKamad;
+                kepalaTU.innerHTML = htmlKepalaTU;
+                wakamad.innerHTML = htmlWakamad;
+                staff.innerHTML = htmlStaff;
+                waliKelas.innerHTML = htmlWaliKelas;
+                dewanGuru.innerHTML = htmlDewanGuru;
+                kebersihanKeamanan.innerHTML = htmlKebersihanKeamanan;
+
+                search.classList.add('d-none');
+                nonSearch.classList.remove('d-none');
+            } else {
+                htmlSearch += '</div>';
+                nonSearch.classList.add('d-none');
+                search.classList.remove('d-none');
+                hasilPencarian.innerHTML = htmlSearch;
+            }
 
             tampilDetail(teachers);
 
