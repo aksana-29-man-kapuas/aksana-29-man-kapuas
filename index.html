@@ -5,6 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
         <!-- Title -->
         <title>BUKU TAHUNAN AKSANA 29 MAN KAPUAS TAHUN 2024</title>
 
@@ -26,7 +28,7 @@
 
     <body>
         <!-- Navbar Start -->
-        <nav class="navbar fixed-top navbar-expand-lg bg-secondary">
+        <nav class="navbar fixed-top navbar-expand-lg" data-bs-theme="dark">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="/">AKSANA 29</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -63,14 +65,12 @@
 
         <!-- Hero Section Start -->
         <section class="hero-section">
-            <div class="container-fluid position-relative p-0">
-                <div class="fw-bold text-white position-absolute z-1 hero-title mt-4 mt-sm-0" id="title-1">
-                    AKSANA 29
+            <div class="container-fluid position-relative p-0 row align-items-center w-100">
+                <div class="fw-bold position-absolute z-1 mt-4 mt-sm-0 hero-title text-center col-12">
+                    <div class="fw-bold" id="title-1">AKSANA 29</div>
+                    <div class="fw-bold mb-5" id="title-2">MAN KAPUAS ANGKATAN KE-29</div>
                 </div>
-                <img src="img/homepage/hero.jpg" alt="foto angkatan" class="img-fluid w-100 mt-5">
-                <div class="fw-bold text-white position-absolute bottom-0 z-1 mb-1 hero-title" id="title-2">
-                    MAN KAPUAS ANGKATAN KE-29
-                </div>
+                <img src="img/homepage/hero.jpeg" alt="foto angkatan" class="img-fluid">
         </section>
         <!-- Hero Section End -->
 
@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-6 mb-3">
                         <div class="card">
-                            <img src="img/homepage/about/card-1.jpg" class="card-img-top" alt="foto angkatan 29">
+                            <img src="img/homepage/about/web.png" class="card-img-top" alt="foto angkatan 29">
                             <div class="card-body">
                                 <h5 class="card-title text-center fw-bold">Buku Angkatan</h5>
                                 <p class="card-text text-justify">
@@ -104,9 +104,11 @@
                     </div>
                     <div class="col-12 col-lg-6 mb-3">
                         <div class="card">
-                            <img src="img/homepage/about/card-1.jpg" class="card-img-top" alt="foto angkatan 29">
+                            <img src="img/homepage/about/aksana.png" class="card-img-top" alt="foto angkatan 29">
                             <div class="card-body">
                                 <h5 class="card-title text-center">AKSANA 29</h5>
+                                <p>AKSANA 29 adalah sebutan untuk para peserta didik kelas 12 angkatan ke-29 MAN Kapuas
+                                </p>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item list-group-item-action">Ketua Angkatan : <b>Akhmad Rezky
                                             Utama</b></li>
@@ -126,13 +128,6 @@
                                         <div>Pramuka : <b>akkmskmakms</b></div>
                                     </li>
                                     <li class="list-group-item list-group-item-action">
-                                        <div class="fw-bold">Struktur OSIM</div>
-                                        <div>Ketua : <b>Muhamad Kemal Faza</b></div>
-                                        <div>Wakil : <b>Muhammad Ridwan</b></div>
-                                        <div>Sekretaris : <b>Intan Nurul Ain</b></div>
-                                        <div>Bendahara : <b>Aisya Rahmah</b></div>
-                                    </li>
-                                    <li class="list-group-item list-group-item-action">
                                         <div class="fw-bold">Jumlah Peserta Didik :</div>
                                         <div>Semua : <b>279 Orang</b></div>
                                         <div>Laki-Laki : <b>115 Orang</b></div>
@@ -145,25 +140,23 @@
                 </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#CFE2FF" fill-opacity="1"
-                    d="M0,128L80,112C160,96,320,64,480,53.3C640,43,800,53,960,53.3C1120,53,1280,43,1360,37.3L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+                <path fill="#6C757D" fill-opacity="1"
+                    d="M0,160L48,149.3C96,139,192,117,288,117.3C384,117,480,139,576,154.7C672,171,768,181,864,186.7C960,192,1056,192,1152,208C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
                 </path>
             </svg>
         </section>
         <!-- About Section End-->
 
         <!-- Section Gallery Start-->
-        <section class="gallery bg-primary-subtle">
-            <div class="container">
-                <div class="row justify-content-center text-center">
+        <section class="gallery bg-secondary">
+            <div class="container-fluid">
+                <div class="row justify-content-center text-center text-white">
                     <div class="col-6">
                         <h1>Sudut Sekolah</h1>
                         <hr>
                     </div>
                 </div>
-            </div>
-            <div class="container-fluid p-0">
-                <div id="gallery" class="carousel slide" data-bs-ride="carousel">
+                <!-- <div id="gallery" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#gallery" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
@@ -203,6 +196,15 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+                </div> -->
+                <div class="row" id="gallery-card">
+                    <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card">
+                            <img src="img/homepage/gallery/lapangan futsal.JPG" class="img-thumbnail rounded" alt="..."
+                                data-bs-toggle="modal" data-bs-target="#gallery"
+                                data-title="Lapangan Futsal / Lapangan Utama">
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -212,6 +214,26 @@
             </svg>
         </section>
         <!-- Section Gallery End-->
+
+        <!-- Modal Start -->
+        <div class="modal fade" id="gallery" tabindex="-1" aria-labelledby="galleryLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="galleryLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" alt="" class="img-fluid">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="" id="download-image" type="button" class="btn btn-primary" download>Download</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal End -->
 
         <!-- Footer Start -->
         <footer>

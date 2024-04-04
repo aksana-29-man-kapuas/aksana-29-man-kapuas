@@ -64,7 +64,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -148,7 +148,7 @@ const tampilCard = (keyword = '') => {
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
                                         <div class="card-body text-center">
                                             <h5 class="card-title">${teacher.nama}</h5>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-nama="${teacher.nama}"
                                                 data-bs-target="#detail">Detail</button>
                                         </div>
                                     </div>
@@ -211,10 +211,10 @@ const tampilDetail = teachers => {
 
     const modalButtons = document.querySelectorAll('button[data-bs-toggle="modal"]');
     teachers.forEach((teacher, index) => {
-        modalButtons[index].addEventListener('click', function () {
+        const modalButton = document.querySelector(`button[data-bs-toggle="modal" data-nama="${teacher.nama}"`);
+        modalButton.addEventListener('click', function () {
             const modal = document.querySelector('#detail-guru');
             const image = document.querySelector('#detail-foto-guru');
-
 
             let html = `
                 <li class="list-group-item"><b>Nama Lengkap :</b> ${teacher.nama}</li>

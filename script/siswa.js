@@ -2,61 +2,95 @@ const root = document.location.host;
 const tampilCard = (keyword = '') => {
     fetch('../data/siswa.json')
         .then(response => response.json())
-        .then(json => {
-            const allStudents = json;
-            let html = '';
-            const kelas = document.querySelector('title').dataset.kelas;
-            const students = [];
-            const tempatCard = document.querySelector('#daftar-peserta-didik');
+        .then(json1 => {
+            fetch('../data/guru.json')
+                .then(response => response.json())
+                .then(json2 => {
+                    const allStudents = json1;
+                    const allTeachers = json2;
+                    let html = '';
+                    let htmlWalkel = '';
+                    const kelas = document.querySelector('title').dataset.kelas;
+                    const students = [];
+                    const walkel = [];
+                    const tempatCard = document.querySelector('#daftar-peserta-didik');
+                    const tempatWaliKelas = document.querySelector('#wali-kelas');
+                    const titleWalkel = document.querySelector('#title-walkel');
+                    const titlePesdik = document.querySelector('#title-pesdik');
 
-            if (!keyword instanceof String) {
-                keyword = '';
-            }
+                    if (!keyword instanceof String) {
+                        keyword = '';
+                    }
 
-            allStudents.forEach(student => {
-                const nama = student.nama.toLowerCase();
-                // let index;
+                    allTeachers.forEach(teacher => {
+                        if (teacher.jabatan == `Wali Kelas ${kelas}`) {
+                            if (teacher.image.length == 0) {
+                                teacher.image = '../img/default.jpg';
+                            } else {
+                                teacher.image = `../img/guru/${teacher.image}`;
+                            }
 
-                if (student.image.length == 0) {
-                    student.image = '../img/default.jpg';
-                } else {
-                    student.image = `../img/pesdik/${student.image}`;
-                }
+                            htmlWalkel += `
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                                    <div class="card">
+                                        <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">${teacher.nama}</h5>
+                                            <button class="btn btn-primary" data-bs-toggle="modal" data-walkel="${kelas}"
+                                                data-bs-target="#detail">Detail</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
 
-                if (nama.includes(keyword) && keyword.length != 0) {
-                    students.push(student);
+                            walkel.push(teacher)
+                        }
 
-                    html += `
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <div class="card">
-                            <img src="${student.image}" class="card-img-top" alt="${student.nama}">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">${student.nama}</h5>
-                                <button class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#detail">Detail</button>
+                    });
+
+                    allStudents.forEach(student => {
+                        const nama = student.nama.toLowerCase();
+
+                        if (student.image.length == 0) {
+                            student.image = '../img/default.jpg';
+                        } else {
+                            student.image = `../img/pesdik/${student.image}`;
+                        }
+
+                        if (nama.includes(keyword) && keyword.length != 0) {
+                            students.push(student);
+
+                            html += `
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="${student.image}" class="card-img-top" alt="${student.nama}">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">${student.nama}</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#detail">Detail</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    `;
-                } else if (keyword.length == 0 && student.kelas == kelas) {
-                    students.push(student);
-                    html += `
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-                        <div class="card">
-                            <img src="${student.image}" class="card-img-top" alt="${student.nama}">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">${student.nama}</h5>
-                                <button class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#detail">Detail</button>
+                            `;
+                        } else if (keyword.length == 0 && student.kelas == kelas) {
+                            students.push(student);
+                            html += `
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                                <div class="card">
+                                    <img src="${student.image}" class="card-img-top" alt="${student.nama}">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">${student.nama}</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#detail">Detail</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    `;
-                }
-            });
+                            `;
+                        }
+                    });
 
-            if (students.length == 0) {
-                html = `
+                    if (students.length == 0) {
+                        html = `
                     <div class="col">
                         <div class="alert alert-danger text-center" role="alert">
                             <h4>Siswa yang dicari tidak ditemukan!</h4>
@@ -64,33 +98,63 @@ const tampilCard = (keyword = '') => {
                         </div>
                     </div>
                 `;
-            }
+                    }
 
-            tempatCard.innerHTML = html;
+                    tempatCard.innerHTML = html;
+                    tempatWaliKelas.innerHTML = htmlWalkel;
+                    titleWalkel.innerHTML = `Wali Kelas ${kelas}`
+                    titlePesdik.innerHTML = `Kelas ${kelas}`
 
-            tampilDetail(students);
+                    tampilDetail(students, walkel);
+                });
+        })
 
-        });
 };
 
 const cariSiswa = () => {
     const search = document.querySelector('input#search');
+    const tempatWaliKelas = document.querySelectorAll('div.justify-content-center:first-child, div.justify-content-center:nth-child(2)');
     search.addEventListener('input', function () {
         let keyword = this.value.toLowerCase();
+
+        tempatWaliKelas.forEach(tempat => {
+            if (keyword.length == 0) {
+                tempat.classList.remove('d-none');
+            } else {
+                tempat.classList.add('d-none');
+            }
+        })
+
         window.scrollTo(0, 0);
         tampilCard(keyword);
     })
 }
 
-const tampilDetail = students => {
+const tampilDetail = (students, teachers) => {
 
     const modalButtons = document.querySelectorAll('button[data-bs-toggle="modal"]');
-    students.forEach((student, index) => {
+    const image = document.querySelector('#detail-foto');
+    let index = 0;
+
+    teachers.forEach(teacher => {
         modalButtons[index].addEventListener('click', function () {
             const modal = document.querySelector('#detail-peserta-didik');
-            const image = document.querySelector('#detail-foto-peserta-didik');
+            let html = `
+                <li class="list-group-item"><b>Nama Lengkap :</b> ${teacher.nama}</li>
+                <li class="list-group-item"><b>Sebagai :</b> ${teacher.jabatan}</li>
+                <li class="list-group-item"><b>Pernah Menjadi :</b> ${teacher.ekstra}</li>
+                `;
 
+            modal.innerHTML = html;
 
+            image.setAttribute('src', teacher.image);
+        })
+        index++;
+    })
+
+    students.forEach(student => {
+        modalButtons[index].addEventListener('click', function () {
+            const modal = document.querySelector('#detail-peserta-didik');
             let html = `
                 <li class="list-group-item"><b>Nama Lengkap :</b> ${student.nama}</li>
                 <li class="list-group-item"><b>Kelas :</b> ${student.kelas}</li>
@@ -122,7 +186,8 @@ const tampilDetail = students => {
             modal.innerHTML = html;
 
             image.setAttribute('src', student.image);
-        })
+        });
+        index++
     });
 
 }
