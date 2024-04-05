@@ -1,6 +1,6 @@
-const root = document.location.host;
+const thisPath = document.location.href;
 const tampilCard = (keyword = '') => {
-    fetch('../data/guru.json')
+    fetch(thisPath + '/../data/guru.json')
         .then(response => response.json())
         .then(json => {
             const allTeachers = json;
