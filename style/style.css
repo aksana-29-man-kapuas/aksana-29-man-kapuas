@@ -7,7 +7,12 @@ nav {
     transition: 0.3s;
 }
 
-.hero-section .container-fluid::after {
+section.hero-section .container-fluid .hero-title {
+    text-shadow: 2px 2px 2px #000;
+    color: #f0f0f0;
+}
+
+section.hero-section .container-fluid::after {
     position: absolute;
     display: block;
     width: 100vw;
@@ -17,20 +22,14 @@ nav {
     top: 0;
 }
 
-.hero-section .container-fluid {
+section.hero-section .container-fluid {
     width: 100vw;
     margin: 0;
     overflow-x: hidden;
 }
 
-.hero-section .container-fluid * {
+section.hero-section .container-fluid * {
     padding: 0;
-}
-
-.hero-title {
-    text-shadow: 2px 2px 2px #000;
-    color: #f0f0f0;
-    /* text-align: center; */
 }
 
 #title-1 {
