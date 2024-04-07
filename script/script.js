@@ -1,8 +1,20 @@
 const scroll = () => {
     const navbar = document.querySelector('nav');
+
     if (window.innerWidth > 1000) {
         navbar.classList.remove('bg-secondary');
         window.addEventListener('scroll', e => {
+            const galleryContainer = document.querySelector('.gallery');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            if (galleryContainer.getBoundingClientRect().top < 400) {
+                galleryCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('show');
+                        galleryModal();
+                    }, 500 * (index + 1));
+                })
+            }
+
             if (window.scrollY == 0) {
                 navbar.classList.remove('bg-secondary');
                 navbar.style.backgroundColor = 'transparent';
@@ -25,10 +37,10 @@ const windowResize = () => {
 }
 
 const galleryModal = () => {
-    const imgThumbnails = document.querySelectorAll('.gallery img.img-thumbnail');
-    const modalTitle = document.querySelector('#galleryLabel');
+    const modalTitle = document.querySelector('#galleryModalLabel');
     const modalImage = document.querySelector('.modal-body img');
     const modalDownload = document.querySelector('a#download-image');
+    const imgThumbnails = document.querySelectorAll('.gallery-card img');
     imgThumbnails.forEach(imgThumbnail => {
         imgThumbnail.addEventListener('click', function () {
             const src = imgThumbnail.src;
@@ -241,18 +253,17 @@ const gallery = () => {
     galleryImage.forEach(image => {
         setTimeout(() => {
             html += `
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 gallery-card">
                 <div class="card">
                     <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
-                    data-bs-toggle="modal" data-bs-target="#gallery"
+                    data-bs-toggle="modal" data-bs-target="#galleryModal"
                     data-title="${image.title}">
                 </div>
             </div>
             `;
             gallery.innerHTML = html;
-        }, 1000);
+        }, 500);
     });
-
 }
 
 const load = () => {

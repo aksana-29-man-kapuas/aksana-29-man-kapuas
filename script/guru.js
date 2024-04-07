@@ -209,24 +209,34 @@ const cariSiswa = () => {
 
 const tampilDetail = teachers => {
 
-    const modalButtons = document.querySelectorAll('button[data-bs-toggle="modal"]');
-    teachers.forEach((teacher, index) => {
-        const modalButton = document.querySelector(`button[data-bs-toggle="modal" data-nama="${teacher.nama}"`);
-        modalButton.addEventListener('click', function () {
+    const modalButtons = document.querySelectorAll(`button[data-bs-toggle="modal"]`);
+    modalButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const teacher = teachers.find(arr => arr.nama == this.dataset.nama);
             const modal = document.querySelector('#detail-guru');
             const image = document.querySelector('#detail-foto-guru');
 
             let html = `
                 <li class="list-group-item"><b>Nama Lengkap :</b> ${teacher.nama}</li>
                 <li class="list-group-item"><b>Sebagai :</b> ${teacher.jabatan}</li>
-                <li class="list-group-item"><b>Pernah Menjadi :</b> ${teacher.ekstra}</li>
-                `;
+                <li class="list-group-item">
+                <div class="fw-bold">Mengajar :</div>`
+
+            if (teacher.mapel && Array.isArray(teacher.mapel)) {
+                teacher.mapel.forEach(mapel => {
+                    html += `<div><i>${mapel}</i></div>`;
+                });
+            } else if (teacher.mapel) {
+                html += `<div><i>${teacher.mapel}</i></div>`;
+            }
+
+            html += `</li><li class="list-group-item"><b>Pernah Menjadi :</b> ${teacher.ekstra}</li>`;
 
             modal.innerHTML = html;
 
             image.setAttribute('src', teacher.image);
         })
-    });
+    })
 }
 
 const checkJabatan = jabatan => {

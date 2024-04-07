@@ -72,3 +72,14 @@ hr {
 .gallery img {
     cursor: pointer;
 }
+
+.gallery-card {
+    opacity: 0;
+    transform: translate(0, -40px);
+    transition: 1s;
+}
+
+.gallery-card.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
