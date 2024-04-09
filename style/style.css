@@ -83,3 +83,7 @@ hr {
     opacity: 1;
     transform: translate(0, 0);
 }
+
+blockquote p {
+    font-size: 1rem;
+}
