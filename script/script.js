@@ -22,6 +22,19 @@ const scroll = () => {
                 navbar.classList.add('bg-secondary');
             }
         })
+    } else {
+        window.addEventListener('scroll', e => {
+            const galleryContainer = document.querySelector('.gallery');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            if (galleryContainer.getBoundingClientRect().top < 400) {
+                galleryCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('show');
+                        galleryModal();
+                    }, 500 * (index + 1));
+                })
+            }
+        })
     }
 }
 
