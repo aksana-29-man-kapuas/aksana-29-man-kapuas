@@ -61,7 +61,7 @@ const tampilCard = (keyword = '') => {
                             students.push(student);
 
                             html += `
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" id="${student.nama.toLowerCase().replaceAll(' ', '-')}">
                                 <div class="card">
                                     <img src="${student.image}" class="card-img-top" alt="${student.nama}">
                                     <div class="card-body text-center">
@@ -74,8 +74,9 @@ const tampilCard = (keyword = '') => {
                             `;
                         } else if (keyword.length == 0 && student.kelas == kelas) {
                             students.push(student);
+                            // console.log()
                             html += `
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" id="${student.nama.toLowerCase().replaceAll(' ', '-')}">
                                 <div class="card">
                                     <img src="${student.image}" class="card-img-top" alt="${student.nama}">
                                     <div class="card-body text-center">
