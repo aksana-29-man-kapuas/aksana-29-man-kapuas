@@ -3,7 +3,6 @@
 }
 
 nav {
-    /* background-color: transparent; */
     transition: 0.3s;
 }
 
@@ -18,7 +17,7 @@ section.hero-section .container-fluid::after {
     width: 100vw;
     height: 100%;
     content: "";
-    background-color: rgba(50, 50, 50, 0.5) !important;
+    background-color: rgba(50, 50, 50, 0.8) !important;
     top: 0;
 }
 
@@ -53,16 +52,6 @@ hr {
     text-align: justify;
 }
 
-.carousel-inner::after {
-    position: absolute;
-    display: block;
-    width: 100vw;
-    height: 50%;
-    content: "";
-    background-image: linear-gradient(0, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    bottom: 0;
-}
-
 .pesan-kesan {
     white-space: pre;
     text-wrap: wrap;
@@ -86,4 +75,17 @@ hr {
 
 blockquote p {
     font-size: 1rem;
+}
+
+@media (min-width: 1000px) {
+    section.about > .row:last-child > .col:first-child {
+        opacity: 0;
+        /* background-color: red; */
+        transform: translate(-40px, 0);
+    }
+
+    section.about > .row:last-child > .col:last-child {
+        opacity: 0;
+        transform: translate(40px, 0);
+    }
 }
