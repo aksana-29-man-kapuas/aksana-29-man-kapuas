@@ -80,7 +80,6 @@ blockquote p {
 @media (min-width: 1000px) {
     section.about > .row:last-child > .col:first-child {
         opacity: 0;
-        /* background-color: red; */
         transform: translate(-40px, 0);
     }
 
