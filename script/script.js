@@ -279,11 +279,81 @@ const gallery = () => {
     });
 }
 
+const getTTL = () => {
+    fetch('../data/siswa.json')
+        .then(response => response.json())
+        .then(json => {
+            let students = json;
+            let html = '';
+            let studentNowBirthday = [];
+            const cardUltah = document.querySelector('#ulang-tahun');
+
+            students.forEach(student => {
+                let ttl = student.ttl.split('-');
+                student.ttl = `${ttl[2]}-${ttl[1]}-${ttl[0]}`;
+                let timeStudent = new Date(Date.parse(student.ttl));
+                let timeNow = new Date(Date.now());
+
+                let studentDate = timeStudent.getDate();
+                let studentMonth = timeStudent.getMonth();
+                let dateNow = timeNow.getDate();
+                let monthNow = timeNow.getMonth();
+
+
+                if (studentDate == dateNow && studentMonth == monthNow) {
+                    studentNowBirthday.push(student);
+                } else if (studentMonth == monthNow && studentDate - dateNow > 0) {
+                    html += `<li class="list-group-item list-group-item-action"><b>${student.nama}</b> kelas <b>${student.kelas}</b> akan berulang tahun pada tanggal <b>${studentDate}</b> nanti!</li>`
+                }
+            });
+
+            if (studentNowBirthday.length == 1) {
+                let student = studentNowBirthday[0];
+                Swal.fire({
+                    title: "Ada yang Sedang Berulang Tahun!",
+                    html: `Hari ini <b>${student.nama}</b> kelas <b>${student.kelas}</b> sedang berulang tahun!`,
+                    icon: "info"
+                });
+            } else if (studentNowBirthday.length == 2) {
+                let text = '';
+                studentNowBirthday.forEach((student, index) => {
+                    if (index == 1) {
+                        text += ` dan <b>${student.nama}</b> kelas <b>${student.kelas}</b>`
+                    } else {
+                        text += `<b>${student.nama}</b> kelas <b>${student.kelas}</b>`
+                    }
+                });
+                Swal.fire({
+                    title: "Ada yang Sedang Berulang Tahun!",
+                    html: `Hari ini ${text} sedang berulang tahun!`,
+                    icon: "info"
+                });
+            } else if (studentNowBirthday.length > 2) {
+                let text = '';
+                studentNowBirthday.forEach((student, index) => {
+                    if (index == studentNowBirthday.length - 1) {
+                        text += `dan <b>${student.nama}</b> kelas <b>${student.kelas}</b>`
+                    } else {
+                        text += `<b>${student.nama}</b> kelas <b>${student.kelas}</b>, `
+                    }
+                });
+                Swal.fire({
+                    title: "Ada yang Sedang Berulang Tahun!",
+                    html: `Hari ini ${text} sedang berulang tahun!`,
+                    icon: "info"
+                });
+            }
+
+            cardUltah.innerHTML = html;
+        });
+}
+
 const load = () => {
     windowResize();
     scroll();
     gallery();
     galleryModal();
+    getTTL();
 }
 
 document.body.onload = load;
