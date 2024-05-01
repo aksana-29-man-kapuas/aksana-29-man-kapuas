@@ -22,6 +22,13 @@ const tampilCard = (keyword = '') => {
                         keyword = '';
                     }
 
+                    titleWalkel.innerHTML = `Wali Kelas ${kelas}`;
+                    if (keyword.length != 0) {
+                        titlePesdik.innerHTML = `Peserta Didik Kelas XII`;
+                    } else {
+                        titlePesdik.innerHTML = `Kelas ${kelas}`;
+                    }
+
                     allTeachers.forEach(teacher => {
                         if (teacher.jabatan == `Wali Kelas ${kelas}`) {
                             if (teacher.image.length == 0) {
@@ -74,7 +81,6 @@ const tampilCard = (keyword = '') => {
                             `;
                         } else if (keyword.length == 0 && student.kelas == kelas) {
                             students.push(student);
-                            // console.log()
                             html += `
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" id="${student.nama.toLowerCase().replaceAll(' ', '-')}">
                                 <div class="card">
@@ -92,19 +98,17 @@ const tampilCard = (keyword = '') => {
 
                     if (students.length == 0) {
                         html = `
-                    <div class="col">
-                        <div class="alert alert-danger text-center" role="alert">
-                            <h4>Siswa yang dicari tidak ditemukan!</h4>
-                            <p>Pastikan nama siswa yang dicari sudah benar</p>
-                        </div>
-                    </div>
-                `;
+                            <div class="col">
+                                <div class="alert alert-danger text-center" role="alert">
+                                    <h4>Siswa yang dicari tidak ditemukan!</h4>
+                                    <p>Pastikan nama siswa yang dicari sudah benar</p>
+                                </div>
+                            </div>
+                        `;
                     }
 
                     tempatCard.innerHTML = html;
                     tempatWaliKelas.innerHTML = htmlWalkel;
-                    titleWalkel.innerHTML = `Wali Kelas ${kelas}`
-                    titlePesdik.innerHTML = `Kelas ${kelas}`
 
                     tampilDetail(students, walkel);
                 });

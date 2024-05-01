@@ -15,6 +15,7 @@ const tampilCard = (keyword = '') => {
             const search = document.querySelector('#pencarian');
             const nonSearch = document.querySelector('#non-pencarian');
             const hasilPencarian = document.querySelector('#hasil-pencarian');
+
             let htmlKamad = '';
             let htmlKepalaTU = '';
             let htmlWakamad = '';
