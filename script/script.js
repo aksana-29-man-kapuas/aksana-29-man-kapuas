@@ -364,15 +364,19 @@ const load = () => {
     galleryModal();
     getTTL();
     const swiper = new Swiper('.swiper', {
-        // speed: 400,
-        slidesPerView: 1.3,
+        speed: 400,
+        slidesPerView: 1.2,
         spaceBetween: 1,
         loop: true,
         centeredSlides: 'auto',
         pagination: {
             el: ".swiper-pagination",
             clickable: true
-        }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
     });
 }
 

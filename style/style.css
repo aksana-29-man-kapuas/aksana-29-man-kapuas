@@ -1,5 +1,8 @@
 * {
     font-family: "Roboto", sans-serif;
+    --swiper-navigation-top-offset: 50vh;
+    --swiper-navigation-color: #6c757d;
+    --swiper-navigation-size: 22px;
 }
 
 body {
