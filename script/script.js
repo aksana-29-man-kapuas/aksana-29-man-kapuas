@@ -286,6 +286,7 @@ const getTTL = () => {
             let students = json;
             let html = '';
             let studentNowBirthday = [];
+            let studentBirthdayThisMonth = [];
             const cardUltah = document.querySelector('#ulang-tahun');
 
             students.forEach(student => {
@@ -303,8 +304,16 @@ const getTTL = () => {
                 if (studentDate == dateNow && studentMonth == monthNow) {
                     studentNowBirthday.push(student);
                 } else if (studentMonth == monthNow && studentDate - dateNow > 0) {
-                    html += `<li class="list-group-item list-group-item-action"><b>${student.nama}</b> kelas <b>${student.kelas}</b> akan berulang tahun pada tanggal <b>${studentDate}</b> nanti!</li>`
+                    studentBirthdayThisMonth.push({
+                        nama: student.nama,
+                        kelas: student.kelas,
+                        ttl: studentDate
+                    });
                 }
+            });
+
+            studentBirthdayThisMonth.sort((a, b) => a.ttl - b.ttl).forEach(student => {
+                html += `<li class="list-group-item list-group-item-action"><b>${student.nama}</b> kelas <b>${student.kelas}</b> akan berulang tahun pada tanggal <b>${student.ttl}</b> nanti!</li>`
             });
 
             if (studentNowBirthday.length == 1) {
