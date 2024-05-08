@@ -2,6 +2,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 nav {
     transition: 0.3s;
 }
