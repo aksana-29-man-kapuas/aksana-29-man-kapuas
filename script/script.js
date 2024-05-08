@@ -264,19 +264,21 @@ const gallery = () => {
     })
 
     galleryImage.forEach(image => {
-        setTimeout(() => {
-            html += `
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 gallery-card" data-aos="fade-up" data-aos-duration="1000">
-                <div class="card">
-                    <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
-                    data-bs-toggle="modal" data-bs-target="#galleryModal"
-                    data-title="${image.title}">
+        html += `
+            <div class="swiper-slide">
+                <div class="row">
+                    <div class="col-12 col-sm-6 gallery-card" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card">
+                            <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
+                            
+                            data-title="${image.title}">
+                        </div>
+                    </div>
                 </div>
             </div>
             `;
-            gallery.innerHTML = html;
-        }, 500);
     });
+    gallery.innerHTML = html;
 }
 
 const getTTL = () => {
@@ -357,27 +359,46 @@ const getTTL = () => {
         });
 }
 
+const runSwiper = () => {
+    const swiper1 = new Swiper('.sambutan-container', {
+        speed: 400,
+        slidesPerView: 1.2,
+        spaceBetween: 100,
+        loop: true,
+        centeredSlides: 'auto',
+        pagination: {
+            el: ".sambutan-pagination",
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".sambutan-button-next",
+            prevEl: ".sambutan-button-prev",
+        },
+    });
+    const swiper2 = new Swiper('.gallery-container', {
+        speed: 400,
+        // slidesPerView: 1,
+        spaceBetween: 1,
+        // loop: true,
+        centeredSlides: 'auto',
+        pagination: {
+            el: ".gallery-pagination",
+            clickable: true
+        },
+        navigation: {
+            nextEl: ".gallery-button-next",
+            prevEl: ".gallery-button-prev",
+        },
+    });
+}
+
 const load = () => {
     windowResize();
     scroll();
     gallery();
     galleryModal();
     getTTL();
-    const swiper = new Swiper('.swiper', {
-        speed: 400,
-        slidesPerView: 1.2,
-        spaceBetween: 1,
-        loop: true,
-        centeredSlides: 'auto',
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
+    runSwiper();
 }
 
 document.body.onload = load;
