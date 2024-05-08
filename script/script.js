@@ -266,7 +266,7 @@ const gallery = () => {
     galleryImage.forEach(image => {
         setTimeout(() => {
             html += `
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 gallery-card">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 gallery-card" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card">
                     <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
                     data-bs-toggle="modal" data-bs-target="#galleryModal"
@@ -363,6 +363,17 @@ const load = () => {
     gallery();
     galleryModal();
     getTTL();
+    const swiper = new Swiper('.swiper', {
+        // speed: 400,
+        slidesPerView: 1.3,
+        spaceBetween: 1,
+        loop: true,
+        centeredSlides: 'auto',
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        }
+    });
 }
 
 document.body.onload = load;
