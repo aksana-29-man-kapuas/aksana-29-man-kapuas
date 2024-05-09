@@ -84,7 +84,6 @@ iframe {
 .gallery-container {
     --swiper-navigation-color: #fff;
     --swiper-navigation-size: 22px;
-    --swiper-pagination-color: #6c757d;
 }
 
 @media (min-width: 1000px) {

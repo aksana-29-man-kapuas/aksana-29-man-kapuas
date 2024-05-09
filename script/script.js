@@ -386,14 +386,12 @@ const runSwiper = () => {
         spaceBetween: 1,
         loop: true,
         centeredSlides: true,
-        pagination: {
-            el: ".gallery-pagination",
-            clickable: true
-        },
         navigation: {
             nextEl: ".gallery-button-next",
             prevEl: ".gallery-button-prev",
         },
+        longSwipesMs: 500,
+        longSwipesRatio: 1,
         lazy: true,
         lazyPreLoaderClass: 'swiper-lazy-preloader',
         laxyPreloadPrevNext: 20,
