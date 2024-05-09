@@ -266,12 +266,17 @@ const gallery = () => {
     galleryImage.forEach(image => {
         html += `
             <div class="swiper-slide">
-                <div class="row">
-                    <div class="col-12 col-sm-6 gallery-card" data-aos="fade-up" data-aos-duration="1000">
+                <div class="row justify-content-center">
+                    <div class="col-10 gallery-card" data-aos="fade-up" data-aos-duration="1000">
                         <div class="card">
-                            <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
-                            
-                            data-title="${image.title}">
+                            <div class="card-img-top">
+                                <img src="img/homepage/gallery/${image.src}" class="img-thumbnail rounded" alt="${image.title}"
+                                data-title="${image.title}" loading="lazy">
+                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="text-center">${image.title}</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,10 +382,10 @@ const runSwiper = () => {
     });
     const swiper2 = new Swiper('.gallery-container', {
         speed: 400,
-        // slidesPerView: 1,
+        slidesPerView: 1.2,
         spaceBetween: 1,
-        // loop: true,
-        centeredSlides: 'auto',
+        loop: true,
+        centeredSlides: true,
         pagination: {
             el: ".gallery-pagination",
             clickable: true
@@ -389,6 +394,19 @@ const runSwiper = () => {
             nextEl: ".gallery-button-next",
             prevEl: ".gallery-button-prev",
         },
+        lazy: true,
+        lazyPreLoaderClass: 'swiper-lazy-preloader',
+        laxyPreloadPrevNext: 20,
+        autoHeigh: true,
+        autoplay: {
+            delay: 5000
+        },
+        effect: 'coverflow',
+        coverflowEffect: {
+            rotate: 30,
+            slideShadows: false,
+        },
+
     });
 }
 
