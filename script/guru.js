@@ -1,47 +1,49 @@
 const thisPath = document.location.href;
-const tampilCard = (keyword = '') => {
-    fetch(thisPath + '/../data/guru.json')
-        .then(response => response.json())
-        .then(json => {
-            const allTeachers = json;
-            const teachers = [];
-            const kamad = document.querySelector('#kepala-madrasah');
-            const kepalaTU = document.querySelector('#kepala-tata-usaha');
-            const wakamad = document.querySelector('#wakil-kepala-madrasah');
-            const staff = document.querySelector('#staff-tata-usaha');
-            const waliKelas = document.querySelector('#wali-kelas');
-            const dewanGuru = document.querySelector('#dewan-guru');
-            const kebersihanKeamanan = document.querySelector('#kebersihan-dan-keamanan');
-            const search = document.querySelector('#pencarian');
-            const nonSearch = document.querySelector('#non-pencarian');
-            const hasilPencarian = document.querySelector('#hasil-pencarian');
+const tampilCard = (keyword = "") => {
+	fetch(thisPath + "/../data/guru.json")
+		.then((response) => response.json())
+		.then((json) => {
+			const allTeachers = json;
+			const teachers = [];
+			const kamad = document.querySelector("#kepala-madrasah");
+			const kepalaTU = document.querySelector("#kepala-tata-usaha");
+			const wakamad = document.querySelector("#wakil-kepala-madrasah");
+			const staff = document.querySelector("#staff-tata-usaha");
+			const waliKelas = document.querySelector("#wali-kelas");
+			const dewanGuru = document.querySelector("#dewan-guru");
+			const kebersihanKeamanan = document.querySelector(
+				"#kebersihan-dan-keamanan",
+			);
+			const search = document.querySelector("#pencarian");
+			const nonSearch = document.querySelector("#non-pencarian");
+			const hasilPencarian = document.querySelector("#hasil-pencarian");
 
-            let htmlKamad = '';
-            let htmlKepalaTU = '';
-            let htmlWakamad = '';
-            let htmlStaff = '';
-            let htmlWaliKelas = '';
-            let htmlDewanGuru = '';
-            let htmlKebersihanKeamanan = '';
-            let htmlSearch = ``;
+			let htmlKamad = "";
+			let htmlKepalaTU = "";
+			let htmlWakamad = "";
+			let htmlStaff = "";
+			let htmlWaliKelas = "";
+			let htmlDewanGuru = "";
+			let htmlKebersihanKeamanan = "";
+			let htmlSearch = ``;
 
-            if (!keyword instanceof String) {
-                keyword = '';
-            }
+			if (!keyword instanceof String) {
+				keyword = "";
+			}
 
-            allTeachers.forEach(teacher => {
-                const nama = teacher.nama.toLowerCase();
+			allTeachers.forEach((teacher) => {
+				const nama = teacher.nama.toLowerCase();
 
-                if (teacher.image.length == 0) {
-                    teacher.image = 'img/default.jpg';
-                } else {
-                    teacher.image = `img/guru/${teacher.image}`;
-                }
+				if (teacher.image.length == 0) {
+					teacher.image = "img/default.jpg";
+				} else {
+					teacher.image = `img/guru/${teacher.image}`;
+				}
 
-                if (nama.includes(keyword) && keyword.length != 0) {
-                    teachers.push(teacher);
+				if (nama.includes(keyword) && keyword.length != 0) {
+					teachers.push(teacher);
 
-                    htmlSearch += `
+					htmlSearch += `
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                         <div class="card">
                             <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -53,13 +55,15 @@ const tampilCard = (keyword = '') => {
                         </div>
                     </div>
                     `;
-                } else if (keyword.length == 0) {
-                    let jabatan = teacher.jabatan.toLowerCase().replaceAll(' ', '-');
+				} else if (keyword.length == 0) {
+					let jabatan = teacher.jabatan
+						.toLowerCase()
+						.replaceAll(" ", "-");
 
-                    teachers.push(teacher);
-                    switch (checkJabatan(jabatan)) {
-                        case 'kepala-madrasah':
-                            htmlKamad += `
+					teachers.push(teacher);
+					switch (checkJabatan(jabatan)) {
+						case "kepala-madrasah":
+							htmlKamad += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -71,9 +75,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'kepala-tata-usaha':
-                            htmlKepalaTU += `
+							break;
+						case "kepala-tata-usaha":
+							htmlKepalaTU += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -85,9 +89,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'wakil-kepala-madrasah':
-                            htmlWakamad += `
+							break;
+						case "wakil-kepala-madrasah":
+							htmlWakamad += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -99,9 +103,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'staff-tata-usaha':
-                            htmlStaff += `
+							break;
+						case "staff-tata-usaha":
+							htmlStaff += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -113,9 +117,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'wali-kelas':
-                            htmlWaliKelas += `
+							break;
+						case "wali-kelas":
+							htmlWaliKelas += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -127,9 +131,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'dewan-guru':
-                            htmlDewanGuru += `
+							break;
+						case "dewan-guru":
+							htmlDewanGuru += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -141,9 +145,9 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                        case 'kebersihan-dan-keamanan':
-                            htmlKebersihanKeamanan += `
+							break;
+						case "kebersihan-dan-keamanan":
+							htmlKebersihanKeamanan += `
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
                                     <div class="card">
                                         <img src="${teacher.image}" class="card-img-top" alt="${teacher.nama}">
@@ -155,16 +159,13 @@ const tampilCard = (keyword = '') => {
                                     </div>
                                 </div>
                                 `;
-                            break;
-                    }
+							break;
+					}
+				}
+			});
 
-
-
-                }
-            });
-
-            if (teachers.length == 0) {
-                htmlSearch += `
+			if (teachers.length == 0) {
+				htmlSearch += `
                     <div class="col">
                         <div class="alert alert-danger text-center" role="alert">
                             <h4>Guru yang dicari tidak ditemukan!</h4>
@@ -172,135 +173,135 @@ const tampilCard = (keyword = '') => {
                         </div>
                     </div>
                 `;
+			}
 
+			if (keyword.length == 0) {
+				kamad.innerHTML = htmlKamad;
+				kepalaTU.innerHTML = htmlKepalaTU;
+				wakamad.innerHTML = htmlWakamad;
+				staff.innerHTML = htmlStaff;
+				waliKelas.innerHTML = htmlWaliKelas;
+				dewanGuru.innerHTML = htmlDewanGuru;
+				kebersihanKeamanan.innerHTML = htmlKebersihanKeamanan;
 
-            }
+				search.classList.add("d-none");
+				nonSearch.classList.remove("d-none");
+			} else {
+				htmlSearch += "</div>";
+				nonSearch.classList.add("d-none");
+				search.classList.remove("d-none");
+				hasilPencarian.innerHTML = htmlSearch;
+			}
 
-            if (keyword.length == 0) {
-                kamad.innerHTML = htmlKamad;
-                kepalaTU.innerHTML = htmlKepalaTU;
-                wakamad.innerHTML = htmlWakamad;
-                staff.innerHTML = htmlStaff;
-                waliKelas.innerHTML = htmlWaliKelas;
-                dewanGuru.innerHTML = htmlDewanGuru;
-                kebersihanKeamanan.innerHTML = htmlKebersihanKeamanan;
-
-                search.classList.add('d-none');
-                nonSearch.classList.remove('d-none');
-            } else {
-                htmlSearch += '</div>';
-                nonSearch.classList.add('d-none');
-                search.classList.remove('d-none');
-                hasilPencarian.innerHTML = htmlSearch;
-            }
-
-            tampilDetail(teachers);
-
-        });
+			tampilDetail(teachers);
+		});
 };
 
 const cariSiswa = () => {
-    const search = document.querySelector('input#search');
-    search.addEventListener('input', function () {
-        let keyword = this.value.toLowerCase();
-        window.scrollTo(0, 0);
-        tampilCard(keyword);
-    })
-}
+	const search = document.querySelector("input#search");
+	search.addEventListener("input", function () {
+		let keyword = this.value.toLowerCase();
+		window.scrollTo(0, 0);
+		tampilCard(keyword);
+	});
+};
 
-const tampilDetail = teachers => {
+const tampilDetail = (teachers) => {
+	const modalButtons = document.querySelectorAll(
+		`button[data-bs-toggle="modal"]`,
+	);
+	modalButtons.forEach((btn) => {
+		btn.addEventListener("click", function () {
+			const teacher = teachers.find(
+				(arr) => arr.nama == this.dataset.nama,
+			);
+			const modal = document.querySelector("#detail-guru");
+			const image = document.querySelector("#detail-foto-guru");
 
-    const modalButtons = document.querySelectorAll(`button[data-bs-toggle="modal"]`);
-    modalButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const teacher = teachers.find(arr => arr.nama == this.dataset.nama);
-            const modal = document.querySelector('#detail-guru');
-            const image = document.querySelector('#detail-foto-guru');
-
-            let html = `
+			let html = `
                 <li class="list-group-item"><b>Nama Lengkap :</b> ${teacher.nama}</li>
                 <li class="list-group-item"><b>Sebagai :</b> ${teacher.jabatan}</li>
                 <li class="list-group-item">
-                <div class="fw-bold">Mengajar :</div>`
+                <div class="fw-bold">Mengajar :</div>`;
 
-            if (teacher.mapel && Array.isArray(teacher.mapel)) {
-                teacher.mapel.forEach(mapel => {
-                    html += `<div><i>${mapel}</i></div>`;
-                });
-            } else if (teacher.mapel) {
-                html += `<div><i>${teacher.mapel}</i></div>`;
-            }
+			if (teacher.mapel && Array.isArray(teacher.mapel)) {
+				teacher.mapel.forEach((mapel) => {
+					html += `<div><i>${mapel}</i></div>`;
+				});
+			} else if (teacher.mapel) {
+				html += `<div><i>${teacher.mapel}</i></div>`;
+			}
 
-            html += `</li><li class="list-group-item"><b>Pernah Menjadi :</b> ${teacher.ekstra}</li>`;
+			html += `</li><li class="list-group-item"><b>Pernah Menjadi :</b> ${teacher.ekstra}</li>`;
 
-            modal.innerHTML = html;
+			modal.innerHTML = html;
 
-            image.setAttribute('src', teacher.image);
-        })
-    })
-}
+			image.setAttribute("src", teacher.image);
+		});
+	});
+};
 
-const checkJabatan = jabatan => {
-    let newJabatan;
-    switch (jabatan) {
-        case 'guru-bp/bk':
-            jabatan = 'dewan-guru';
-            break;
+const checkJabatan = (jabatan) => {
+	let newJabatan;
+	switch (jabatan) {
+		case "guru-bp/bk":
+			jabatan = "dewan-guru";
+			break;
 
-        case 'wakamad-sarana-dan-prasarana':
-            jabatan = 'wakil-kepala-madrasah';
-            break;
+		case "wakamad-sarana-dan-prasarana":
+			jabatan = "wakil-kepala-madrasah";
+			break;
 
-        case 'wakamad-kesiswaan':
-            jabatan = 'wakil-kepala-madrasah';
-            break;
+		case "wakamad-kesiswaan":
+			jabatan = "wakil-kepala-madrasah";
+			break;
 
-        case 'wakamad-kurikulum':
-            jabatan = 'wakil-kepala-madrasah';
-            break;
+		case "wakamad-kurikulum":
+			jabatan = "wakil-kepala-madrasah";
+			break;
 
-        case 'wakamad-humas':
-            jabatan = 'wakil-kepala-madrasah';
-            break;
+		case "wakamad-humas":
+			jabatan = "wakil-kepala-madrasah";
+			break;
 
-        case 'wali-kelas-xii-ipa-1':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ipa-1":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ipa-2':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ipa-2":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ipa-3':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ipa-3":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ipa-4':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ipa-4":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ips-1':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ips-1":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ips-2':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ips-2":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-ips-3':
-            jabatan = 'wali-kelas';
-            break;
+		case "wali-kelas-xii-ips-3":
+			jabatan = "wali-kelas";
+			break;
 
-        case 'wali-kelas-xii-pai':
-            jabatan = 'wali-kelas';
-            break;
-    }
-    return jabatan;
-}
+		case "wali-kelas-xii-pai":
+			jabatan = "wali-kelas";
+			break;
+	}
+	return jabatan;
+};
 
 const load = () => {
-    tampilCard();
-    cariSiswa();
-}
+	tampilCard();
+	cariSiswa();
+};
 
 document.body.onload = load;
